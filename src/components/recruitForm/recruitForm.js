@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./recruitForm.css";
+import logo from "./Ottawa_Gee-Gees.png";
 
 function RecruitForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [otherContact, setOtherContact] = useState("");
   const [position, setPosition] = useState("");
   const [gradYear, setGradYear] = useState("");
   const [height, setHeight] = useState("");
@@ -15,6 +19,8 @@ function RecruitForm() {
     event.preventDefault();
     console.log("Name:", name);
     console.log("Email:", email);
+    console.log("Phone:", phoneNumber);
+    console.log("Other Contact:", otherContact);
     console.log("Position:", position);
     console.log("Grad Year:", gradYear);
     console.log("Height:", height);
@@ -25,7 +31,14 @@ function RecruitForm() {
 
   return (
     <div>
-      <h1>Baseball Recruit Form</h1>
+      <header>
+        <Link to="/">
+          <img src={logo} alt="Logo" className="logo" />
+        </Link>
+      </header>
+      <div className="container">
+        <h1 className="center">Baseball Recruit Form</h1>
+      </div>
       <form onSubmit={handleSubmit}>
         <h2>Personal Information</h2>
         <label>
@@ -42,6 +55,22 @@ function RecruitForm() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+          />
+        </label>
+        <label>
+          Phone Number:
+          <input
+            type="text"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+        </label>
+        <label>
+          Other Contact (Any social media account):
+          <input
+            type="text"
+            value={otherContact}
+            onChange={(e) => setOtherContact(e.target.value)}
           />
         </label>
 

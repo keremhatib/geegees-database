@@ -1,0 +1,30 @@
+.welcome {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+p {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+body {
+  background-color: #ffe6e6; /* light burgundy */
+}
+
+.logo {
+  height: 50px; /* Adjust this to the height of your logo */
+  margin-right: 1rem;
+}
+
+h1 {
+  display: inline-block;
+  margin: 0;
+}

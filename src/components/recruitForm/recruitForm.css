@@ -7,6 +7,16 @@ body {
 }
 
 /* Form Styles */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.center {
+  text-align: center;
+}
 
 form {
   max-width: 600px;
@@ -21,7 +31,7 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -85,4 +95,9 @@ button[type="submit"]:hover {
   button[type="submit"] {
     font-size: 0.8rem;
   }
+}
+
+.logo {
+  height: 50px; /* Adjust this to the height of your logo */
+  margin-right: 1rem;
 }
