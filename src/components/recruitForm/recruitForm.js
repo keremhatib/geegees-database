@@ -4,29 +4,67 @@ import "./recruitForm.css";
 import logo from "./Ottawa_Gee-Gees.png";
 
 function RecruitForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [otherContact, setOtherContact] = useState("");
-  const [position, setPosition] = useState("");
-  const [gradYear, setGradYear] = useState("");
-  const [height, setHeight] = useState("");
-  const [weight, setWeight] = useState("");
-  const [bats, setBats] = useState("");
-  const [throws, setThrows] = useState("");
+  const [player, setPlayer] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    otherContact: "",
+    primaryPosition: "",
+    secondaryPosition: "",
+    mostRecentTeam: "",
+    mostRecentTeamContact: "",
+    howWeFind: "",
+    gradYear: "",
+    height: "",
+    weight: "",
+    fastballVelo: "",
+    curveballRating: "",
+    changeupRating: "",
+    sliderCutter: "",
+    pitchInfo: "",
+    hittingVelo: "",
+    recruitmentStatus: "",
+    appNumber: "",
+    notes: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setPlayer((prevPlayer) => ({
+      ...prevPlayer,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Phone:", phoneNumber);
-    console.log("Other Contact:", otherContact);
-    console.log("Position:", position);
-    console.log("Grad Year:", gradYear);
-    console.log("Height:", height);
-    console.log("Weight:", weight);
-    console.log("Bats:", bats);
-    console.log("Throws:", throws);
+    // Perform actions with the player data
+    console.log("Player:", player);
+    // Reset the form
+    event.target.reset();
+    setPlayer({
+      name: "",
+      email: "",
+      phoneNumber: "",
+      otherContact: "",
+      primaryPosition: "",
+      secondaryPosition: "",
+      mostRecentTeam: "",
+      mostRecentTeamContact: "",
+      howWeFind: "",
+      gradYear: "",
+      height: "",
+      weight: "",
+      fastballVelo: "",
+      curveballRating: "",
+      changeupRating: "",
+      sliderCutter: "",
+      pitchInfo: "",
+      hittingVelo: "",
+      recruitmentStatus: "",
+      appNumber: "",
+      notes: "",
+    });
   };
 
   return (
@@ -45,82 +83,193 @@ function RecruitForm() {
           Name:
           <input
             type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
+            value={player.name}
+            onChange={handleChange}
           />
         </label>
         <label>
           Email:
           <input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={player.email}
+            onChange={handleChange}
           />
         </label>
         <label>
           Phone Number:
           <input
             type="text"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            name="phoneNumber"
+            value={player.phoneNumber}
+            onChange={handleChange}
           />
         </label>
         <label>
           Other Contact (Any social media account):
           <input
             type="text"
-            value={otherContact}
-            onChange={(e) => setOtherContact(e.target.value)}
+            name="otherContact"
+            value={player.otherContact}
+            onChange={handleChange}
+          />
+        </label>
+
+        <h2>Contact Information</h2>
+        <label>
+          Most Recent Team:
+          <input
+            type="text"
+            name="mostRecentTeam"
+            value={player.mostRecentTeam}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Most Recent Team Contact Info:
+          <input
+            type="text"
+            name="mostRecentTeamContactInfo"
+            value={player.mostRecentTeamContact}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          How we find him:
+          <input
+            type="text"
+            name="howWeFindHim"
+            value={player.howWeFind}
+            onChange={handleChange}
           />
         </label>
 
         <h2>Baseball Information</h2>
         <label>
-          Position:
+          Primary Position:
           <input
             type="text"
-            value={position}
-            onChange={(e) => setPosition(e.target.value)}
+            name="primaryPosition"
+            value={player.primaryPosition}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Secondary Position(s):
+          <input
+            type="text"
+            name="secondaryPosition"
+            value={player.secondaryPosition}
+            onChange={handleChange}
           />
         </label>
         <label>
           Graduation Year:
           <input
             type="text"
-            value={gradYear}
-            onChange={(e) => setGradYear(e.target.value)}
+            name="gradYear"
+            value={player.gradYear}
+            onChange={handleChange}
           />
         </label>
         <label>
           Height:
           <input
             type="text"
-            value={height}
-            onChange={(e) => setHeight(e.target.value)}
+            name="height"
+            value={player.height}
+            onChange={handleChange}
           />
         </label>
         <label>
           Weight:
           <input
             type="text"
-            value={weight}
-            onChange={(e) => setWeight(e.target.value)}
+            name="weight"
+            value={player.weight}
+            onChange={handleChange}
           />
         </label>
         <label>
-          Bats:
+          Fastball Velo (range):
           <input
             type="text"
-            value={bats}
-            onChange={(e) => setBats(e.target.value)}
+            name="fastballVelo"
+            value={player.fastballVelo}
+            onChange={handleChange}
           />
         </label>
         <label>
-          Throws:
+          Curveball Rating or Range (“20-80 scale” or velo range):
           <input
             type="text"
-            value={throws}
-            onChange={(e) => setThrows(e.target.value)}
+            name="curveballRating"
+            value={player.curveballRating}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Changeup Rating or Range (“20-80 scale” or velo range):
+          <input
+            type="text"
+            name="changeupRating"
+            value={player.changeupRating}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Slider/Cutter (notes and Rating or Range):
+          <input
+            type="text"
+            name="sliderCutter"
+            value={player.sliderCutter}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          “Other” pitch info:
+          <input
+            type="text"
+            name="pitchInfo"
+            value={player.pitchInfo}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Exit velo for hitting (max):
+          <input
+            type="text"
+            name="hittingVelo"
+            value={player.hittingVelo}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Recruitment Status:
+          <input
+            type="text"
+            name="recruitmentStatus"
+            value={player.recruitmentStatus}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          uOttawa Application Number:
+          <input
+            type="text"
+            player="appNumber"
+            value={player.appNumber}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Notes:
+          <input
+            type="text"
+            name="notes"
+            value={player.notes}
+            onChange={handleChange}
           />
         </label>
 
